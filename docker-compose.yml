@@ -1,0 +1,39 @@
+version: "3"
+services:
+  nginx:
+    image: nginx
+    ports: 
+      - "80:80"
+      - "443:443"
+    volumes:
+      - ./dist:/var/www/html
+      - ./nginx/conf.d/:/etc/nginx/conf.d/
+      - ./nginx/ssl/:/etc/nginx/ssl/
+    networks:
+      - ticket_net
+  php:
+    build: .
+    container_name: php
+    volumes:
+      - ./config:/config
+    networks:
+      - ticket_net
+
+  mysql:
+    image: 'mysql:8.0'
+    ports:
+      - '3304:3306'
+    environment:
+      MYSQL_ROOT_PASSWORD: 'adminpassword'
+      MYSQL_DATABASE: 'opensupports'
+      MYSQL_USER: 'admin'
+      MYSQL_PASSWORD: 'adminpassword'
+      MYSQL_ALLOW_EMPTY_PASSWORD: 'yes'
+    volumes:
+      - ./database:/var/lib/mysql
+    networks:
+      - ticket_net
+
+networks:
+  ticket_net:
+    driver: bridge
