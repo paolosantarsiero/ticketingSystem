@@ -42,7 +42,7 @@ index 8d1b211..1c707b6 100755
 +    <meta name="viewport" content="width=device-width">
  
 -        <title>OpenSupports</title>
-+    <title>Minervas</title>
++    <title>Takius</title>
  
 -        <link rel="icon" type="image/x-icon" href="<?=$url ?>/images/icon.png">
 -        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css">
