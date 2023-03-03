@@ -8,5 +8,6 @@ server/files/
 server/.dbdata
 server/.fakemail
 server/apidoc
-dist/
+database/
+config/
 .env
