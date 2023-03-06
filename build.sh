@@ -36,3 +36,4 @@ zip -ur opensupports_dev.zip api
 mkdir dist
 unzip -o opensupports_dev.zip -d dist
 rm -rf opensupports_dev.zip
+patch dist/index.php < fix-https-reverse-proxy.diff
